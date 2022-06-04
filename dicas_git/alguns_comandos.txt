@@ -1,0 +1,28 @@
+#######################################
+# RESUMO RAPIDO PARA CRIAR UM PROJETO #
+#######################################
+1 - Entrar na pasta do projeto e rodar um git init
+2 - git add . ou git add -A -> Coloca as alterações no diretório stage area (local que são enviadas as alteraçcoes antes de serem comitadas)
+3 - git status -> Mostra o que tem na stage area
+4 - git add -> Prepara para ser comitado
+5 - git status -> O que aparece em verde é o que está pronto para ser commitado
+6 - git commit -m "ATUALIZACAO DO ENV" - Finalizou definitivamente as alterações. (todo commit aponta para uma tree)
+7 - git log -> Mostra alterações
+8 - git log --oneline -> Mostra as alteçaões em uma linha
+
+
+############################
+# EXPLICAÇÃO DOS PROCESSOS # 
+############################
+
+1 - Working directory ->  Diretório onde está o projeto. 
+
+2 - Staging Area ou index -> Diretório pra onde serão enviadas as modificações. O comando 'git add' adiciona arquivos para esse diretório. Antes de executar um commit, deve-se colocar os arquivos na staging area através do comando 'git add'.
+
+3 - branch -> O branch é uma nova linha de desenvolvimento que permite isolar o código de uma nova funcionalidade, mantendo a linha base estável, evitando o represamento do código. O branch é apenas uma referência para um commit.
+
+4 - git merge ( + o nome da branch ) -> Após definir que as alterações ficarão definitivas, executamos o comando 'git merge' + o nome da branch. (merge = unir, fundir, juntar, misturar)
+
+5 - git branch -d ( + o nome da branch ) - > Apaga a branch e o projeto como master a partir dessa branch
+
+6 - git stash -> É uma área onde é possível armazenar código, sem a necessidade de realizar um commit, permitindo mudar de branch ou realizar outras operaçoes de forma organizada.
