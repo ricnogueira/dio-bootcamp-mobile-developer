@@ -1,0 +1,342 @@
+###################
+# TIPOS DE  DADOS #
+###################
+
+- int		- boolean		- println(Int.MAX_VALUE)	
+- long		- char			- println(Float.MAX_VALUE)
+- float		- byte			- 
+- double	- short			- MAX_VALUE obtem o valor máximo do tipo.
+- array		- null!			
+
+#######################
+# CONVERSÕES DE TIPOS #
+#######################
+
+toByte()		toFloat()
+toShort()		toDouble()
+toInt()			toChar()
+toLong()		
+
+###########################
+# DECLARAÇÃO DE VARIÁVEIS #
+###########################
+
+var (valor mutável, CamelCase)-> Pode ser alterada duranta a execução do algoritmo
+
+val (valor imutável, CamelCase)-> Não pode ser alterada
+
+const val (valor imutável, SNAKE_CASE)-> Constante cujo valor é atribuído durante a compilação. Deve está fora da função main.
+
+############
+# EXEMPLOS #
+############
+
+var currentAge = 22 (define a variável como sendo do tipo inteiro)
+var currentAge:Int? (define a variável como sendo do tipo inteiro ou nulo)
+
+const val MIN_AGE = 16 (define a variável como sendo constante e imutável) - DEVE SER USADA FORA DA FUNÇÃO MAIN
+const val MAX_AGE = 68 (define a variável como sendo constante e imutável) - DEVE SER USADA FORA DA FUNÇÃO MAIN
+
+
+EXEMPLOS PRÁTICOS - ACESSE ESTE LINK PARA PRATICAR EXEX EXEMPLOS. https://play.kotlinlang.org/
+
+EXEMPLO 1
+---------
+var numero1 = 1 // DECLARA A VARIAVEL 'numero1' DO TIPO INTEIRO
+var numero2 = 2 // DECLARA A VARIAVEL 'numero2' DO TIPO INTEIRO
+
+fun main() {
+    println(numero1 + numero2)  // SOMA AS DUAS VARIAVEIS E GERA A SAIDA (SOMATÓRIO DAS DUAS VARIAVEIS)
+    
+}
+
+
+EXEMPLO 2
+---------
+
+const val MAX_AGE = 68 // DEFININE A CONSTANTE MAX_AGE
+
+fun main(){
+	var age:Int? // DEFINE A VARIAVEL 'age' DO TIPO INTEIRO OU NULA
+    age = 70  // DEFINE A VARIÁVEL COM VALOR 70
+    
+    println(MAX_AGE > age)  // CHECA SE A VARIÁVEL CONSTANTE MAX_AGE É MAIOR DO QUE A VARIÁVEL 'age'. A SAÍDA DEVE SER UM TRUE OU FALSE.
+    
+}
+
+
+EXEMPLO 3
+---------
+
+fun main(){
+    var entrada = 1
+    println("A variável 'entrada' é do tipo " + entrada::class.java.typeName + "\n")  // IMPRIME O TIPO DA VARIÁVEL
+    
+    var convertida = entrada.toString()
+    
+    println(convertida)
+    
+    println("\nA conversão gerou uma nova variável com o nome 'convertida' mas agora sendo to tipo " + convertida::class.java.typeName)  // IMPPRIME A VARIÁVEL E MOSTRA SEU TIPO
+}
+
+
+##############
+# OPERADORES #
+##############
+
+fun main(){
+    
+    var palavra1 = "Ola, " // VARIAVEL DO TIPO STRING
+    var palavra2 = "Mundo!"  // VARIAVEL DO TIPO STRING
+    
+    var valor1 = 10  // VARIAVEL DO TIPO INT
+    var valor2 = 5   // VARIAVEL DO TIPO INT
+	
+    // MANIPULANDO INTEIROS
+    //
+    println("MANIPULANDO OS INTEIROS")
+    println(valor1 + valor2)  // SOMANDO AS VARIAVEIS USANDO A EXPRESSAO
+    println("------")
+    println(valor1.plus(valor2)) // SOMANDO AS VARIAVEIS valor1 + valor2 USANDO O COMANDO
+    println("------")
+    valor1 += valor2  // SOMANDO AS VARIAVEIS valor1 + valor2 USANDO ATRIBUIÇÃO
+    println(valor1)
+    println("\nMANIPULANDO AS STRINGS")
+    
+    
+    // MANIPULANDO STRINGS
+    //
+    println(palavra1.plus(palavra2)) // CONCATENANDO STRINGS COM COMANDOS
+    println("------")
+    
+    println(palavra1 + palavra2)  // CONCATENANDO STRINGS COM EXPRESSAO
+    println("------")
+    
+    palavra1 += palavra2  // CONCATENANDO STRINGS COM ATRIBUICAO
+    println(palavra1)
+        
+}
+
+###########################
+# OPERADORES COMPARATIVOS #
+###########################
+
+const val LESS = -1
+const val EQUAL = 0
+const val MORE = 1
+
+fun main(){
+	val a = 20
+    val b = 80
+    
+    //println(a > b) // COMPARA SE A VARIAVEL a É MAIOR QUE A VARIAVEL b
+    //println(a.compareTo(b)) // O COMANDO compareTo() RETORNA (-1 PARA MENOR QUE), (0 PARA IGUAL) E (1 PARA MAIOR QUE)
+    print(a >= b)
+    println(a.compareTo(b) >= EQUAL)
+    
+    
+    //println(a.equals(b))
+    
+    
+}
+
+######################
+# OPERADORES LOGICOS #
+######################
+
+const val MIN_AGE = 16
+const val MAX_AGE = 68
+
+fun main(){
+    
+    val bingo = listOf(8,6,34,1,14) // CRIA UMA LISTA
+    var numero = 34
+    
+    println(numero)
+    println(numero in bingo)  // RETOR SE TRUE SE A VARIAVEL numero ESTIVER CONTIDA NA LISTA BINGO OU FALSE SE NÃO ESTIVER
+    
+    println("--------") // 
+    
+    var age = (1..100).random() // GERA UMA LISTA RANDOMICA ENTRE 1 E 100
+    println(age)
+    println(age in MIN_AGE..MAX_AGE)
+    println(age >= MIN_AGE && age <= MAX_AGE)
+    
+    
+}
+
+#######################
+# MANIPULANDO STRINGS #
+#######################
+
+EXEMPLO 1 - INDEXAÇAO - STRINGS COMO ARRAY: first(), last(), String.length(), String[index]
+-------------------------------------------------------------------------------------------
+
+fun main(){
+  
+    val s = "Ola, mundo!"
+    
+    println(s[0]) // IMPRIME A LETRA O DA PALAVRA Ola
+    println(s[3]) // IMPRIME A VIRGULA
+    println(s.first()) // IMPRIME A PRIMEIRA POSICAO DO ARRAY. RETORNA A LETRA O DA PALAVRA Ola
+    
+    println(s[s.length-1]) // IMPRIME A ULTIMA POSIÇÃO DO ARRAY
+    println(s.last()) // TAMBÉM IMPRIME A ULTIMA POSIÇÃO DO ARRAY
+    
+    
+}
+
+EXEMPLO 2 - CONCATENAÇAO -
+--------------------------
+* PARA CONCATENAR STRINGS, O plus/+ PODE SER USADO.
+* PARA CONCATENAR VARIAVEIS COM STRINGS, OS SíMBOLOS ${} DEVEM SER INSERIDOS
+
+fun main() {
+  val n1 = "Ola"
+  val n2 = "Ana"
+  val n3 = "ana"
+  val n4 = "Bem vindo(a)"
+    
+    println(n1 + n2) // RETORNA OlaAna TUDO JUNTO
+    
+    println("${n1}, ${n2}!") // RETORNA Ola, Ana! MANTENDO A ESTRUTURA DEFINIDA ENTRE AS ASPAS
+    
+    println("Bem vindo(a), $n2!") // RETORNA Bem vindo(a), Ana!
+    
+    println("$n4, ${n3.capitalize()}!") // RETORNA Bem vindo(a), Ana, SO QUE COLOCANDO EM UPERCASE A PRIMEIRA LETRA DA VARIAVEL n3
+    
+    
+}
+
+
+EXEMPLO 3 - FORMATAÇAO -
+------------------------
+
+fun main(){
+    
+    val n1 = "Aluno"
+    val n2 = "professor"
+    val f1 = "          O aluno não escutou o professor."
+    val f2 = "O codigo não foi ezecutado corretamente."
+    
+    println(n2.capitalize()) // COLOCA EM MAIUSCULA A LETRA P DA PALAVRA PROFESSOR
+    println()
+    println(n1.decapitalize()) // COLOCA EM MINUSCULA A LETRA A DA PALAVRA ALUNO
+    println()
+    println(n2.toUpperCase()) // COLOCA A PALAVRA PROFESSOR TODA EM MAIUSCULA
+    println()
+    println(n1.toLowerCase()) // COLOCA A PALAVRA ALUNO TODA EM MINUSCULA
+    
+    // REMOÇÃO DE ESPAÇOS
+    println()
+    println(f1)  // IMPRIME A VARIAVEL f1 COM OS ESPAÇOS NO INICIO
+    println()
+    println(f1.trimStart()) // IMPRIME A VARIAVEL f1 SEM OS ESPAÇOS NO INICIO
+    println()
+    println(f2.trimEnd())
+    println()
+    
+    // SUBSTITUIÇÃO DE CARACTERES
+    println(f2.replace('z' , 'x')) // SUBSTITUI A LETRA Z DA FRASE PELA LETRA X
+    println()
+    println(f2.replace("codigo" , "algoritmo")) // SUBSTITUI A PALAVRA CODIGO PELA PALAVRA ALGORITMO
+    
+}
+
+#################
+# EMPTY X BLANK #
+#################
+
+fun main(){
+    val empty = ""        // SEM ESPAÇOS
+    val blank = "      "  // FORAM DADOS SEIS ESPAÇOS
+    
+    println(empty.length)  // IMPRIME O TAMANHO DA VARIAVEL EMPTY
+    println(blank.length)  // IMPRIME O TAMANHO DA VARIAVEL BLANK COM SEIS ESPAÇOS
+    
+    println(empty.isEmpty() && empty.isBlank()) // A VARIAVEL EMPTY ESTÁ VAZIA E ESTÁ EM BRANCO ?
+    println(blank.isEmpty() && blank.isBlank())  // A VARIAVEL BLANK ESTÁ VAZIA E EM BRANCO ?
+    
+    
+    
+}
+
+
+###########
+# FUNÇÕES #
+###########
+
+REPETIÇOES
+----------
+
+ACEITA OS COMANDOS in, range, until, downTo e step.
+
+while(condicao){
+{
+
+
+do{
+  // codigo
+} while(condicao)
+
+
+for(i in 0..20 step 2){
+  println(i)
+}
+
+
+EXEMPLOS DIVERSOS
+-----------------
+
+fun main(){
+    
+  step(2)  
+    
+}
+
+
+// RETORNA DE ZERO ATE VINTE EM ORDEM CRESCENTE
+fun crescente(){
+    for(i in 0.. 20)
+    print("$i ")
+}
+
+
+// // RETORNA A SEQUENCIA EM ORDEM DECRESCENTE
+fun downTo(){
+    for(i in 20 downTo 0)
+    print("$i ")
+}
+
+// RETORNA A SEQUENCIA EM ORDEM CRESCENTE MENOS UM
+fun until(){
+    for(i in 0 until 20)
+    print("$i ")
+}
+
+// REQUER UM NUMERO INTEIRO COMO PARAMETRO
+fun step(num:Int){
+    for(i in 0.. 10 step num){
+        print("$i ")
+    }
+}
+
+// RETORNA A STRING TODA EM MAIUSCULAS
+fun letters(){
+    val sArray = "Olha essa string!"
+    for(l in sArray){
+        print(l.toUpperCase())
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
